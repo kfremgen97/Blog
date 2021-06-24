@@ -4,8 +4,6 @@
 
 This project implements a blog replica where a user can see the latest stories from various categories.
 
-**Active links:**
-
 The following pages are active.
 - home
 - sport
