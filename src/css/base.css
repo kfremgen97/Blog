@@ -1,0 +1,41 @@
+/******** Variables ********/
+
+:root{
+    --light-color: #fff;
+    --primary-light-color: #a374ff;
+    --primary-color: #8c52ff;
+    --primary-dark-color: #7530ff;
+    --dark-color: #000;
+    --text-color: #222;
+}
+
+/******** All elements **********/
+
+*,
+*::before,
+*::after{
+    /*Set the margin nd padding to 0*/
+    margin: 0;
+    padding: 0;
+    /*Set the box sizing for all elements to inherit*/
+    box-sizing: inherit;
+}
+
+/******** Root element **********/
+
+html{
+    /* font size of  62.5% of 16px = 10px*/
+    font-size: 62.5%;
+    /*Set the box sizing to border-box, height and width includes padding and border*/
+    box-sizing: border-box;
+}
+
+/******** Body element **********/
+
+body {
+    font-size: 1.6rem;
+    font-family: 'Noto Sans JP', sans-serif;
+    color: var(--text-color);
+    font-weight: 400;
+    line-height:1.6;
+}

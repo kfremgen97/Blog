@@ -1,0 +1,18 @@
+/********** Grid **********/
+
+body{
+    display: grid;
+    /* Create a grid with 8 columns and 6 rows*/
+    grid-template-columns: repeat(8,1fr);
+    grid-template-rows: repeat(6,min-content);
+    grid-gap: 2rem;
+    /* Handle the auto rows */
+    grid-auto-rows: min-content;
+    /* Grid areas */
+    grid-template-areas: 'header header header header header header header header'
+                'intro intro intro intro intro intro intro intro'
+                ' story story story story story story story story'
+                ' story story story story story story story story'
+                ' story story story story story story story story'
+                'footer footer footer footer footer footer footer';
+}
