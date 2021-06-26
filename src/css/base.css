@@ -39,3 +39,39 @@ body {
     font-weight: 400;
     line-height:1.6;
 }
+
+/********** Grid  Systems **********/
+
+.blog-body{
+    display: grid;
+    /* Create a grid with 8 columns and 6 rows*/
+    grid-template-columns: repeat(8,1fr);
+    grid-template-rows: repeat(6,min-content);
+    grid-gap: 2rem;
+    /* Handle the auto rows */
+    grid-auto-rows: min-content;
+    /* Grid areas */
+    grid-template-areas: 'header header header header header header header header'
+                'intro intro intro intro intro intro intro intro'
+                ' story story story story story story story story'
+                ' story story story story story story story story'
+                ' story story story story story story story story'
+                'footer footer footer footer footer footer footer footer';
+}
+
+/********* Header element ***********/
+
+.header{
+    /*Set the element in the grid*/
+    grid-area: header;
+    background-color: var(--dark-color);
+}
+
+
+/********* Footer element ***********/
+
+.footer{
+    /*Set the element in the grid*/
+    grid-area: footer;
+    background-color: var(--primary-color);
+}
