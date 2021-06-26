@@ -38,6 +38,7 @@ body {
     color: var(--text-color);
     font-weight: 400;
     line-height:1.6;
+    min-width: 100vh;
 }
 
 /********** Grid  Systems **********/
@@ -64,8 +65,16 @@ body {
 .header{
     /*Set the element in the grid*/
     grid-area: header;
-    background-color: var(--dark-color);
+    padding: 2rem;
+    border-bottom: .5rem solid var(--dark-color);
+
+    /* Set the header to a display of flex*/
+    display: flex;
+    align-items: center;
 }
+
+/********* Nav element *********/
+
 
 
 /********* Footer element ***********/
