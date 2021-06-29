@@ -5,8 +5,7 @@
     --primary-light-color: #a374ff;
     --primary-color: #8c52ff;
     --primary-dark-color: #7530ff;
-    --dark-color: #000;
-    --text-color: #222;
+    --dark-color: #222;
 }
 
 /******** All elements **********/
@@ -35,7 +34,7 @@ html{
 body {
     font-size: 1.6rem;
     font-family: 'Noto Sans JP', sans-serif;
-    color: var(--text-color);
+    color: var(--dark-color);
     font-weight: 400;
     line-height:1.6;
     min-width: 100vh;
@@ -66,16 +65,57 @@ body {
     /*Set the element in the grid*/
     grid-area: header;
     padding: 2rem;
-    border-bottom: .5rem solid var(--dark-color);
-
+    background-color: var(--dark-color);
     /* Set the header to a display of flex*/
     display: flex;
     align-items: center;
 }
 
+/********* Logo **************/
+
+.logo{
+    display: inline-block;
+    height: 4.8rem;
+    width: auto;
+    margin-right:2rem;
+    clip-path: circle();
+}
+
 /********* Nav element *********/
 
+.nav{
+    margin-left: auto;
+}
 
+.nav__list{
+    list-style: none;
+    display: flex;
+}
+
+.nav__item:not(.nav__item:last-child){
+    margin-right:2rem;
+}
+
+/* Link states */
+.nav__link:link,
+.nav__link:visited{
+    text-decoration: none;
+    color: var(--light-color);
+    transition: all .2s;
+}
+
+.nav__link:hover{
+    color: var(--primary-color);
+}
+
+.nav__link:active{
+    color: var(--primary-dark-color);
+}
+
+.nav__link:focus{
+    outline: .2rem solid var(--primary-light-color);
+
+}
 
 /********* Footer element ***********/
 
