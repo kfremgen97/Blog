@@ -104,12 +104,9 @@ body {
     transition: all .2s;
 }
 
-.nav__link:hover{
-    color: var(--primary-color);
-}
-
+.nav__link:hover,
 .nav__link:active{
-    color: var(--primary-dark-color);
+    color: var(--primary-color);
 }
 
 .nav__link:focus{
