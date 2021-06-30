@@ -29,6 +29,7 @@
 }
 
 /* Link states*/
+
 .headline__link:link,
 .headline__link:visited{
     display: block;
@@ -49,5 +50,65 @@
 }
 
 .headline__link:focus{
+    outline: .2rem solid var(--primary-light-color);
+}
+
+/********* Cards ********/
+
+.other-stories{
+    grid-column: 1/-1;
+
+}
+
+
+.card {
+    width: 35rem;
+    height: 40rem;
+    overflow: hidden;
+    border-radius: 2rem;
+    box-shadow: 2rem 2rem 1rem var(--dark-color);
+
+    display: flex;
+    flex-direction: column;
+}
+
+.card__img{
+    display: inline-block;
+    height: 40%;
+    width: auto;
+    margin-bottom: 1rem;
+
+}
+
+.card__text{
+    display: inline-block;
+    height: 40%;
+    padding: 1rem;
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+/* Link states */
+
+.card__link:link,
+.card__link:visited{
+    display: inline-block;
+    align-self: flex-end;
+    padding: 1rem;
+    text-decoration: none;
+}
+
+.card__link  svg{
+    height:3.2rem;
+    width: 3.2rem;
+    fill: var(--primary-color);
+}
+
+.card__link:hover svg,
+.card__link:active svg {
+    fill: var(--primary-dark-color);
+}
+
+.card__link:focus{
     outline: .2rem solid var(--primary-light-color);
 }
