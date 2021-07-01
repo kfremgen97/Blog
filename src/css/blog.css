@@ -1,10 +1,17 @@
 /********* main ********/
 
 .main{
+    /*
+    Set the grid area in the overall grid
+    Set the padding
+     */
     grid-area: story;
     padding: 2rem;
 
-    /* Set the display to grid */
+    /*
+    Set the display to grid
+    Create a 4 column grid with a gap of 1rem between cells
+    */
     display: grid;
     grid-template-columns: repeat(4,1fr);
     grid-auto-rows: min-content;
@@ -14,11 +21,17 @@
 /********* headline *******/
 
 .main-story{
+    /*Set the placement for main grid*/
     grid-column: 1/-1;
 }
 
 .headline{
-    width: 100%;
+    /*
+    Set the width and height
+    Set the background image with a size of cover and position of center with no repeat
+    Set the border radius to 2rem
+    Set the position to relative, so child elements can be positioned absolutely to this
+     */
     height: 50vh;
     background-image: url(../assets/img/sport/sport-1.jpg);
     background-size: cover;
@@ -32,8 +45,16 @@
 
 .headline__link:link,
 .headline__link:visited{
+    /*
+    Set the display to block
+    Set the padding to 2rem
+    Set the background color and an opacity of 80%
+    Set the bottom corners radius to 2rem
+    Set the position to absolute and 0 from the bottom of parent relative positioned element
+    Set the color to white and text decoration to non
+     */
     display: block;
-    width:100%;
+    width: 100%;
     padding: 2rem;
     background-color: var(--dark-color);
     opacity: 80%;
@@ -56,40 +77,59 @@
 /********* Cards ********/
 
 .other-stories{
+    /* Set the element in main grid*/
     grid-column: 1/-1;
-
     /*
     Set the display to grid
+    Create a grid with automatic columns depending on the available space
+    Set the automatic rows to a height of the min content
+    Align the grid items in the center
      */
     display: grid;
     grid-gap: 2rem;
-    grid-template-columns: repeat(auto-fit,minmax(39rem,1fr));
+    grid-template-columns: repeat(auto-fit,minmax(37rem,1fr));
+    grid-auto-rows: min-content;
     justify-items: center;
-
 }
 
 
 .card {
+    /*
+    Set the width and height of the card
+    Set the overflow to hidden
+    Set the border-radius to 2rem
+    Give a box shadow for affect
+     */
     width: 35rem;
     height: 40rem;
     overflow: hidden;
     border-radius: 2rem;
     box-shadow: 2rem 2rem 1rem  rgba(0,0,0,.5);
-
+    /*
+    Set the display to flex with the main axis on the column
+     */
     display: flex;
     flex-direction: column;
 }
 
 .card__img{
+    /*
+    Set the display to inline block
+    Set the height and a width
+    Add bottom spacing
+     */
     display: inline-block;
     height: 40%;
     width: auto;
     margin-bottom: 1rem;
-
 }
 
 .card__text{
-    display: inline-block;
+    /*
+    Set the height
+    Add a padding and add bottom spacing
+    Hide the overflow
+     */
     height: 40%;
     padding: 1rem;
     overflow: hidden;
@@ -100,6 +140,9 @@
 
 .card__link:link,
 .card__link:visited{
+    /*
+    Align the link to the end of the row
+     */
     display: inline-block;
     align-self: flex-end;
     padding: 1rem;
@@ -107,6 +150,10 @@
 }
 
 .card__link  svg{
+    /*
+    Set the height and width of icon
+    Fill in with primary color
+     */
     height:3.2rem;
     width: 3.2rem;
     fill: var(--primary-color);
