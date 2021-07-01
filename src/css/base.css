@@ -10,28 +10,37 @@
 
 /******** All elements **********/
 
+
 *,
 *::before,
 *::after{
-    /*Set the margin nd padding to 0*/
+    /*
+    Set the margin nd padding to 0
+    Set the box sizing for all elements to inherit
+    */
     margin: 0;
     padding: 0;
-    /*Set the box sizing for all elements to inherit*/
     box-sizing: inherit;
 }
 
 /******** Root element **********/
 
 html{
-    /* font size of  62.5% of 16px = 10px*/
+    /*
+    Font size of  62.5% of 16px = 10px
+    Set the box sizing to border-box, height and width includes padding and border
+    */
     font-size: 62.5%;
-    /*Set the box sizing to border-box, height and width includes padding and border*/
     box-sizing: border-box;
 }
 
 /******** Body element **********/
 
 body {
+    /*
+     Set the sight overall font styling
+     Set the height of the site to be a minimum of the viewport height
+     */
     font-size: 1.6rem;
     font-family: 'Noto Sans JP', sans-serif;
     color: var(--dark-color);
@@ -43,16 +52,18 @@ body {
 /********** Grid  Systems **********/
 
 .blog-body{
+    /*
+    Create a grid with 8 columns and 6 rows
+    Set the gap between cells to 2rem
+     */
     display: grid;
-    /* Create a grid with 8 columns and 6 rows*/
     grid-template-columns: repeat(8,1fr);
     grid-template-rows: repeat(6,min-content);
     grid-gap: 2rem;
-    /* Handle the auto rows */
     grid-auto-rows: min-content;
-    /* Grid areas */
+    /* Grid area */
     grid-template-areas: 'header header header header header header header header'
-                'intro intro intro intro intro intro intro intro'
+                 ' story story story story story story story story'
                 ' story story story story story story story story'
                 ' story story story story story story story story'
                 ' story story story story story story story story'
@@ -62,11 +73,17 @@ body {
 /********* Header element ***********/
 
 .header{
-    /*Set the element in the grid*/
+    /*
+    Set the element in the main grid
+    Set the padding and abckground color
+     */
     grid-area: header;
     padding: 2rem;
     background-color: var(--dark-color);
-    /* Set the header to a display of flex*/
+    /*
+    Set the header to a display of flex and main axis row
+    align the items on cross axis to center
+    */
     display: flex;
     align-items: center;
 }
@@ -74,6 +91,10 @@ body {
 /********* Logo **************/
 
 .logo{
+    /*
+    Set the logo to an inline block
+    Set the height,width and right spacing
+     */
     display: inline-block;
     height: 4.8rem;
     width: auto;
@@ -84,19 +105,26 @@ body {
 /********* Nav element *********/
 
 .nav{
+    /*Set the left spacing to auto, in flex takes up all the free space*/
     margin-left: auto;
 }
 
 .nav__list{
+    /* Set the list style to none*/
     list-style: none;
+    /* Set the display to flex with main axis as row*/
     display: flex;
 }
 
 .nav__item:not(.nav__item:last-child){
+    /*
+    For ever nav__item that is not the last child, as right spacing
+     */
     margin-right:2rem;
 }
 
 /* Link states */
+.nav__link,
 .nav__link:link,
 .nav__link:visited{
     text-decoration: none;
@@ -117,9 +145,13 @@ body {
 /********* Footer element ***********/
 
 .footer{
-    /*Set the element in the grid*/
+    /*
+    Set the element in the grid
+    Set the text and background color
+    Add padding
+    */
     grid-area: footer;
     color: var(--light-color);
-    background-color: var(--primary-color);
+    background-color: var(--dark-color);
     padding: 2rem;
 }
