@@ -1,0 +1,36 @@
+/********* Story ********/
+
+.story{
+    /*
+    Set the grid area in main grid
+    Add a padding
+     */
+    grid-area: story;
+    padding:2rem;
+    /*
+    Set the display to grid
+    Create a grid with 4 columns and a gap of 2 rem for each cell
+     */
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-auto-rows: min-content;
+    grid-gap: 2rem;
+}
+
+/********* Post info **********/
+
+.post-info{
+    /*
+    Set the element in story grid
+     */
+    grid-column: 1/-1;
+}
+
+/********* Post content **********/
+
+.post-content{
+    /*
+  Set the element in story grid
+   */
+    grid-column: 1/-1;
+}
