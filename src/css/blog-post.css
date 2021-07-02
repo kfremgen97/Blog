@@ -6,15 +6,18 @@
     Add a padding
      */
     grid-area: story;
-    padding:2rem;
+    padding: 2rem;
     /*
     Set the display to grid
     Create a grid with 4 columns and a gap of 2 rem for each cell
      */
     display: grid;
-    grid-template-columns: repeat(4,1fr);
-    grid-auto-rows: min-content;
+    grid-template-columns: repeat(3,1fr) minmax(min-content,25rem);
+    grid-auto-rows:  min-content;
     grid-gap: 2rem;
+    /*Set the grid areas*/
+    grid-template-areas: 'info info info author'
+                        'content content content author';
 }
 
 /********* Post info **********/
@@ -22,7 +25,72 @@
 .post-info{
     /*
     Set the element in story grid
+    Give a bottom margin of 4rem
      */
+    grid-area: info;
+    margin-bottom: 4rem;
+}
+
+
+.post-info__title{
+    /*Set the margin bottom to 4rem*/
+    margin-bottom: 4rem;
+}
+
+.post-info__img{
+    /*
+    Set the display to block
+    Set the height to 50rem with auto width
+    Set the border radius and a box shadow
+     */
+    display: block;
+    height: 50rem;
+    width:auto;
+    border-radius: 2rem;
+    box-shadow: 2rem 2rem 1rem  rgba(0,0,0,.5);
+}
+
+
+.author{
+    /*
+    Set the grid area in story grid
+    Set the background color and add padding
+     */
+    grid-area: author;
+    background-color: var(--medium-color);
+    padding: 2rem;
+
+    /*
+    Set the display to grid
+    Create a 2 column grid with a gap of 2rem between each cell
+     */
+    display: grid;
+    grid-template-columns: min-content 1fr;
+    grid-auto-rows: min-content;
+    grid-gap:2rem;
+    border-radius: 2rem;
+
+}
+
+.author__img{
+    /*
+    Set the element in the author grid
+    Set the height to 15rem with a auto width to keep its dimensions
+    Clip the image to a circle
+     */
+    grid-column: 1/2;
+    height: 15rem;
+    width:auto;
+    clip-path: circle();
+}
+
+.author__name{
+    /*Align the name in center along vertical axis */
+    align-self: center;
+}
+
+.author__bio{
+    /*Set the bio to span the whole row in the author grid*/
     grid-column: 1/-1;
 }
 
@@ -32,5 +100,9 @@
     /*
   Set the element in story grid
    */
-    grid-column: 1/-1;
+    grid-area: content;
+}
+
+.post-content__text{
+    margin-bottom:2rem;
 }

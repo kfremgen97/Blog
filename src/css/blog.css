@@ -2,7 +2,7 @@
 
 .stories{
     /*
-    Set the grid area in the overall grid
+    Set the grid area in the main grid
     Set the padding
      */
     grid-area: story;
@@ -21,7 +21,7 @@
 /********* headline *******/
 
 .main-story{
-    /*Set the placement for main grid*/
+    /*Set the placement for stories grid*/
     grid-column: 1/-1;
 }
 
@@ -77,7 +77,7 @@
 /********* Cards ********/
 
 .other-stories{
-    /* Set the element in main grid*/
+    /* Set the element in stories grid*/
     grid-column: 1/-1;
     /*
     Set the display to grid

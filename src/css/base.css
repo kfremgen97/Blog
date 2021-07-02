@@ -5,6 +5,7 @@
     --primary-light-color: #a374ff;
     --primary-color: #8c52ff;
     --primary-dark-color: #7530ff;
+    --medium-color: #d4d4d4;
     --dark-color: #222;
 }
 
@@ -51,7 +52,7 @@ body {
 
 /********** Grid  Systems **********/
 
-.blog-body{
+.body{
     /*
     Create a grid with 8 columns and 6 rows
     Set the gap between cells to 2rem
@@ -68,6 +69,16 @@ body {
                 ' story story story story story story story story'
                 ' story story story story story story story story'
                 'footer footer footer footer footer footer footer footer';
+}
+
+/********* Typography **********/
+
+h1{
+    font-size: 4rem;
+}
+
+h2{
+    font-size: 2rem;
 }
 
 /********* Header element ***********/
