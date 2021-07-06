@@ -45,11 +45,13 @@
      */
     display: block;
     height: 50rem;
-    width:auto;
+    width:100%;
     border-radius: 2rem;
     box-shadow: 2rem 2rem 1rem  rgba(0,0,0,.5);
 }
 
+
+/********* author **********/
 
 .author{
     /*
@@ -105,4 +107,24 @@
 
 .post-content__text{
     margin-bottom:2rem;
+}
+
+/*==========================
+- MEDIA Queries
+ =========================*/
+
+/********* 900 breakpoint ********/
+
+@media only screen and (max-width: 56.25em){
+
+    .story{
+        grid-template-areas: 'info info info info'
+                        'author author author author'
+                        'content content content content';
+    }
+
+    .author{
+        padding: 1rem;
+    }
+
 }
