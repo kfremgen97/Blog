@@ -32,7 +32,7 @@
     Set the border radius to 2rem
     Set the position to relative, so child elements can be positioned absolutely to this
      */
-    height: 50vh;
+    height: 40vh;
     background-image: url(../assets/img/sport/sport-1.jpg);
     background-size: cover;
     background-position: center;
@@ -106,34 +106,35 @@
     border-radius: 2rem;
     box-shadow: 2rem 2rem 1rem  rgba(0,0,0,.5);
     /*
-    Set the display to flex with the main axis on the column
+    Set the display to grid
+    Create a 1 column grid with 3 rows and a gap of 1rem
      */
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: min-content 1fr min-content;
+    grid-gap: 1rem;
 }
 
 .card__img{
     /*
     Set the display to inline block
     Set the height and a width
-    Add bottom spacing
+    Set the element in the card grid
      */
     display: inline-block;
-    height: 40%;
-    width: auto;
-    margin-bottom: 1rem;
+    grid-row: 1/2;
+    width: 100%;
+    height: 15rem;
 }
 
 .card__text{
     /*
-    Set the height
-    Add a padding and add bottom spacing
+    Set the element in the card grid
     Hide the overflow
      */
-    height: 40%;
-    padding: 1rem;
+   grid-row: 2/3;
     overflow: hidden;
-    margin-bottom: 1rem;
+    padding:1rem;
 }
 
 /* Link states */
@@ -144,9 +145,10 @@
     Align the link to the end of the row
      */
     display: inline-block;
-    align-self: flex-end;
-    padding: 1rem;
     text-decoration: none;
+    grid-row: 3/4;
+    justify-self: end;
+    padding: 0 1rem 1rem 0;
 }
 
 .card__link  svg{
@@ -167,3 +169,61 @@
 .card__link:focus{
     outline: .2rem solid var(--primary-light-color);
 }
+
+/*==========================
+- MEDIA Queries
+ =========================*/
+
+/************* 1200 breakpoint ***********/
+
+
+/************ 900 breakpoint **********/
+
+@media only screen and (max-width: 56.25em) {
+
+    .other-stories{
+        grid-template-columns: repeat(auto-fit,minmax(32rem,1fr));
+    }
+
+    .card{
+        width:30rem;
+        height:35rem;
+    }
+}
+
+/********* 700 breakpoint *************/
+
+@media only screen and (max-width: 43.75em){
+
+    .other-stories{
+        grid-template-columns: 1fr;
+    }
+
+    .card{
+        grid-template-columns: 30% 1fr;
+        grid-template-rows: 1fr min-content;
+        width: 100%;
+        height: 20rem;
+    }
+
+    .card__img{
+        grid-column: 1/2;
+        grid-row: 1/-1;
+        height: 20rem;
+    }
+
+    .card__text{
+        grid-row:1/2;
+
+    }
+
+    .card__link{
+        grid-column: 2/3;
+        justify-self: end;
+
+    }
+}
+
+
+/********** 600 breakpoint *************/
+

@@ -166,3 +166,13 @@ h2{
     background-color: var(--dark-color);
     padding: 2rem;
 }
+
+/*==========================
+- MEDIA Queries
+ =========================*/
+
+/************ 900 breakpoint **********/
+
+@media only screen and (max-width: 56.25em){
+
+}
