@@ -113,6 +113,15 @@
 - MEDIA Queries
  =========================*/
 
+/************* 1200 breakpoint ***********/
+
+@media only screen and (min-width:75em){
+
+    .story{
+        background-color: var(--light-color);
+    }
+}
+
 /********* 900 breakpoint ********/
 
 @media only screen and (max-width: 56.25em){

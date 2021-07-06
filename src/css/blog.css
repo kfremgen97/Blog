@@ -178,6 +178,12 @@
 
 /************* 1200 breakpoint ***********/
 
+@media only screen and (min-width:75em){
+
+    .stories{
+        background-color: var(--light-color);
+    }
+}
 
 /************ 900 breakpoint **********/
 

@@ -55,12 +55,10 @@ body {
 .body{
     /*
     Create a grid with 8 columns and 6 rows
-    Set the gap between cells to 2rem
      */
     display: grid;
     grid-template-columns: repeat(8,1fr);
     grid-template-rows: repeat(6,min-content);
-    grid-gap: 2rem;
     grid-auto-rows: min-content;
     /* Grid area */
     grid-template-areas: 'header header header header header header header header'
@@ -171,8 +169,21 @@ h2{
 - MEDIA Queries
  =========================*/
 
-/************ 900 breakpoint **********/
 
-@media only screen and (max-width: 56.25em){
+/************* 1200 breakpoint ***********/
+
+@media only screen and (min-width: 75em) {
+
+    .body {
+        background-image: linear-gradient(to bottom right,var(--primary-light-color),var(--primary-dark-color));
+        grid-template-columns: 1fr repeat(6, 20rem) 1fr;
+        grid-template-areas: 'header header header header header header header header'
+                 ' . story story story story story story .'
+                ' . story story story story story story .'
+                ' . story story story story story story .'
+                ' . story story story story story story .'
+                'footer footer footer footer footer footer footer footer';
+
+    }
 
 }
