@@ -118,6 +118,10 @@ h2{
     margin-left: auto;
 }
 
+.nav__label,
+.nav__button{
+    display:none;
+}
 .nav__list{
     /* Set the list style to none*/
     list-style: none;
@@ -187,3 +191,7 @@ h2{
     }
 
 }
+
+/************ 900 breakpoint ***********/
+
+@media only screen and (max-width: )
