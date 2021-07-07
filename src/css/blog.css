@@ -1,3 +1,4 @@
+
 /********* stories ********/
 
 .stories{
@@ -17,7 +18,24 @@
     grid-auto-rows: min-content;
     grid-gap: 1rem;
 }
+/********** category ********/
 
+.category{
+    /*Set the placement for stories grid*/
+    grid-column: 1/-1;
+    /*
+    Set the height to 20 of the viewport height
+    Set the font and background color
+     */
+    height: 20vh;
+    color: var(--primary-color);
+    background-image: linear-gradient(to bottom right,var(--light-color),var(--medium-color));
+    border-radius: 2rem;
+    /*Set the display to flex to center the h1 vertically and horizontally*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 /********* headline *******/
 
 .main-story{
