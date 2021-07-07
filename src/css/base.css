@@ -116,11 +116,18 @@ h2{
 .nav{
     /*Set the left spacing to auto, in flex takes up all the free space*/
     margin-left: auto;
+    transition: all .5s;
 }
 
 .nav__checkbox,
 .nav__button{
     display:none;
+    margin-left: auto;
+}
+
+.nav__button {
+    background-color: transparent;
+    color: white;
 }
 
 .nav__list{
@@ -128,6 +135,7 @@ h2{
     list-style: none;
     /* Set the display to flex with main axis as row*/
     display: flex;
+    transition: all .5s;
 }
 
 .nav__item:not(.nav__item:last-child){
@@ -141,6 +149,7 @@ h2{
 .nav__link,
 .nav__link:link,
 .nav__link:visited{
+    display: inline-block;
     text-decoration: none;
     color: var(--light-color);
     transition: all .2s;
@@ -202,10 +211,13 @@ h2{
         position: fixed;
         height: 100vh;
         width: 100vw;
-        top: 0;
+        top: -100%;
         right: 0;
         z-index: 100;
-        background-color: var(--dark-color)
+        background-color: var(--dark-color);
+
+        opacity:0;
+        visibility: hidden;
     }
 
     .nav__button {
@@ -219,6 +231,9 @@ h2{
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
+
+        opacity:0;
+        visibility: collapse;
 
         flex-direction: column;
         justify-content: center;
@@ -244,4 +259,16 @@ h2{
         border-bottom: .2rem solid var(--primary-color);
     }
 
+    .nav__checkbox:checked ~ .nav{
+        top:5rem;
+        opacity: 1;
+        visibility: visible;
+
+    }
+
+    .nav__checkbox:checked ~ .nav > .nav__list{
+        opacity: 1;
+        visibility: visible;
+
+    }
 }
