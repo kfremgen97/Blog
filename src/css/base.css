@@ -118,10 +118,11 @@ h2{
     margin-left: auto;
 }
 
-.nav__label,
+.nav__checkbox,
 .nav__button{
     display:none;
 }
+
 .nav__list{
     /* Set the list style to none*/
     list-style: none;
@@ -194,4 +195,53 @@ h2{
 
 /************ 900 breakpoint ***********/
 
-@media only screen and (max-width: )
+@media only screen and (max-width: 56.25em) {
+
+    .nav {
+        font-size: 3.2rem;
+        position: fixed;
+        height: 100vh;
+        width: 100vw;
+        top: 0;
+        right: 0;
+        z-index: 100;
+        background-color: var(--dark-color)
+    }
+
+    .nav__button {
+        display: inline-block;
+        background-color: transparent;
+        color: white;
+    }
+
+    .nav__list {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .nav__item {
+        padding: 2rem;
+    }
+
+    .nav__item:not(.nav__item:last-child) {
+        margin-right: 0;
+    }
+
+    /* Link states */
+    .nav__link,
+    .nav__link:link,
+    .nav__link:visited {
+        border-bottom: .2rem solid transparent;
+    }
+
+    .nav__link:hover,
+    .nav__link:active {
+        border-bottom: .2rem solid var(--primary-color);
+    }
+
+}
