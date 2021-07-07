@@ -82,6 +82,8 @@ h2{
 /********* Header element ***********/
 
 .header{
+    position: relative;
+    z-index: 1;
     /*
     Set the element in the overall grid
     Set the padding and background color
@@ -213,7 +215,7 @@ h2{
         width: 100vw;
         top: -100%;
         right: 0;
-        z-index: 100;
+        z-index: -1;
         background-color: var(--dark-color);
 
         opacity:0;
@@ -260,7 +262,7 @@ h2{
     }
 
     .nav__checkbox:checked ~ .nav{
-        top:5rem;
+        top:0;
         opacity: 1;
         visibility: visible;
 
