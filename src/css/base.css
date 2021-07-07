@@ -82,6 +82,12 @@ h2{
 /********* Header element ***********/
 
 .header{
+    /*
+    Set the position to relative to keep it in normal flow but with a z index of 1
+    This will create a local stack context that the nav will be placed in when screen width is less than 900px
+    It will also set the header to have the highest stack level in the main stacking context, this means no elements will
+    placed in front of it
+     */
     position: relative;
     z-index: 1;
     /*
@@ -118,16 +124,23 @@ h2{
 .nav{
     /*Set the left spacing to auto, in flex takes up all the free space*/
     margin-left: auto;
-
 }
 
 .nav__checkbox,
 .nav__button{
+    /*
+    Hide the checkbox and button, will only be shown when screen less than 900px
+    Set the margin left to auto, since it will be a flex item
+     */
     display:none;
     margin-left: auto;
 }
 
 .nav__button {
+    /*
+    Align the elements in the center
+    Hide the background by setting it to transparent
+     */
     text-align: center;
     background-color: transparent;
     color: white;
@@ -138,33 +151,60 @@ h2{
 
 .nav__button:hover .nav__icon,
 .nav__button:hover .nav__icon::before,
-.nav__button:hover .nav__icon::after
-{
+.nav__button:hover .nav__icon::after {
+    /*When the nav button is hover, set the icon and the psuedo before and after to primary color*/
     background-color: var(--primary-color);
 }
 
 .nav__checkbox:checked + .nav__button .nav__icon{
+    /*When the nav checkbox is checked, hide the background*/
     background-color: transparent;
 }
 
 .nav__checkbox:checked + .nav__button .nav__icon::before{
+    /*
+    When the nav checkbox is checked, apply styles to before pseudo element of icon
+    Set the background color to primary color and rotate element by 45 degrees
+    */
     background-color: var(--primary-color);
     transform: rotate(45deg);
     top:0;
 }
 
 .nav__checkbox:checked + .nav__button .nav__icon::after{
+    /*
+    When the nav checkbox is checked, apply styles to after pseudo element of icon
+    Set the background color to primary color and rotate element by 45 degrees
+    */
     background-color: var(--primary-color);
     transform: rotate(-45deg);
     top:0;
 }
+
+.nav__checkbox:checked ~ .nav{
+    top:0;
+    opacity: 1;
+    visibility: visible;
+}
+
+.nav__checkbox:checked ~ .nav > .nav__list{
+    opacity: 1;
+    visibility: visible;
+}
+
 .nav__icon{
+    /*Set the nav icon to a position of relative, this way child elements can be position absolutely to this*/
     position: relative;
 }
 
 .nav__icon,
 .nav__icon::before,
 .nav__icon::after{
+    /*
+    Set the nav icon as well as before and after pseudo to be an inline block
+    Set the width and the height to create a single line
+    Set the background color to primary color and set a transition for all properties of .2 seconds
+     */
     display: inline-block;
     width: 3rem;
     height:.2rem;
@@ -174,16 +214,23 @@ h2{
 
 .nav__icon::before,
 .nav__icon::after{
+    /*
+    Position pseudo elements before and after of nav icon to be absolute
+    We set the nav icon to be a position of relative so these elements cna eb positioned based on that
+    Set the content property so elements show on screen
+     */
     position: absolute;
     left: 0;
     content: "";
 }
 
 .nav__icon::before{
+    /*Set psuedo before .8rem from top of nav icon*/
     top:.8rem;
 }
 
 .nav__icon::after{
+    /*Set psuedo after 1.6rem from top of nav icon*/
     top:1.6rem;
 }
 
@@ -195,9 +242,7 @@ h2{
 }
 
 .nav__item:not(.nav__item:last-child){
-    /*
-    For ever nav__item that is not the last child, as right spacing
-     */
+    /*For ever nav__item that is not the last child, as right spacing */
     margin-right:2rem;
 }
 
@@ -245,6 +290,7 @@ h2{
 @media only screen and (min-width: 75em) {
 
     .body {
+        /*Create a new grid template so main content does not stretch past 1200px*/
         background-image: linear-gradient(to bottom right,var(--primary-light-color),var(--primary-dark-color));
         grid-template-columns: 1fr repeat(6, 20rem) 1fr;
         grid-template-areas: 'header header header header header header header header'
@@ -253,7 +299,6 @@ h2{
                 ' . story story story story story story .'
                 ' . story story story story story story .'
                 'footer footer footer footer footer footer footer footer';
-
     }
 
 }
@@ -263,36 +308,64 @@ h2{
 @media only screen and (max-width: 56.25em) {
 
     .nav {
-        font-size: 3.2rem;
+        /*
+        Set the position to fixed and since the header element has a zindex of 1, when we place this zindex to -1
+            sets the stack index for the local header stack context to place everything else inside header in front
+            Still places this element ahead of all other elements since the header specifies the main stack index to be higher than all other elements
+        Set the top of the nav to be -100% of itself from top of viewport
+         */
         position: fixed;
-        height: 100vh;
-        width: 100vw;
+        z-index: -1;
         top: -100%;
         right: 0;
-        z-index: -1;
+        /*
+        Set the font size to 3.2rem
+        Set the height and width to take up entire height and width of screen
+        Set the background color to dark
+         */
+        font-size: 3.2rem;
+        height: 100vh;
+        width: 100vw;
         background-color: var(--dark-color);
-
+        /*
+        Hide the nav until the nav button is clicked
+        Set the opacity to 0 with a  visibility of hidden
+        Set the transition of all properties to be .4s
+         */
         opacity:0;
         visibility: hidden;
-        transition: all .5s;
+        transition: all .4s;
     }
 
     .nav__button {
+        /*Show the anv button*/
         display: inline-block;
     }
 
     .nav__list {
+        /*
+        Position the nav list according to its nearest positioned ancestor,i.e the nav
+        Set it 50 from top and left
+        We then translate it -50 in each direction for it to be truley centered
+         */
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-
-        opacity:0;
-        visibility: collapse;
-        transition: all .5s;
-
+        /*
+        Update the flex direction to be a column instead of row
+        Center the content along the main axis
+         */
         flex-direction: column;
         justify-content: center;
+        /*
+         Hide the nav list until the nav button is clicked
+        Set the opacity to 0 with a  visibility of collapse
+        Set the transition of all properties to be .4s
+         */
+        opacity:0;
+        visibility: collapse;
+        transition: all .4s;
     }
 
     .nav__item {
@@ -315,16 +388,4 @@ h2{
         border-bottom: .2rem solid var(--primary-color);
     }
 
-    .nav__checkbox:checked ~ .nav{
-        top:0;
-        opacity: 1;
-        visibility: visible;
-
-    }
-
-    .nav__checkbox:checked ~ .nav > .nav__list{
-        opacity: 1;
-        visibility: visible;
-
-    }
 }
