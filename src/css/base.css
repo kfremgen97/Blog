@@ -118,7 +118,7 @@ h2{
 .nav{
     /*Set the left spacing to auto, in flex takes up all the free space*/
     margin-left: auto;
-    transition: all .5s;
+
 }
 
 .nav__checkbox,
@@ -128,8 +128,63 @@ h2{
 }
 
 .nav__button {
+    text-align: center;
     background-color: transparent;
     color: white;
+    cursor: pointer;
+}
+
+/*Checkbox states*/
+
+.nav__button:hover .nav__icon,
+.nav__button:hover .nav__icon::before,
+.nav__button:hover .nav__icon::after
+{
+    background-color: var(--primary-color);
+}
+
+.nav__checkbox:checked + .nav__button .nav__icon{
+    background-color: transparent;
+}
+
+.nav__checkbox:checked + .nav__button .nav__icon::before{
+    background-color: var(--primary-color);
+    transform: rotate(45deg);
+    top:0;
+}
+
+.nav__checkbox:checked + .nav__button .nav__icon::after{
+    background-color: var(--primary-color);
+    transform: rotate(-45deg);
+    top:0;
+}
+.nav__icon{
+    position: relative;
+}
+
+.nav__icon,
+.nav__icon::before,
+.nav__icon::after{
+    display: inline-block;
+    width: 3rem;
+    height:.2rem;
+    background-color: var(--light-color);
+    transition: all .2s;
+}
+
+.nav__icon::before,
+.nav__icon::after{
+    position: absolute;
+    left: 0;
+    content: "";
+}
+
+.nav__icon::before{
+    top:.8rem;
+}
+
+.nav__icon::after{
+    top:1.6rem;
 }
 
 .nav__list{
@@ -137,7 +192,6 @@ h2{
     list-style: none;
     /* Set the display to flex with main axis as row*/
     display: flex;
-    transition: all .5s;
 }
 
 .nav__item:not(.nav__item:last-child){
@@ -220,12 +274,11 @@ h2{
 
         opacity:0;
         visibility: hidden;
+        transition: all .5s;
     }
 
     .nav__button {
         display: inline-block;
-        background-color: transparent;
-        color: white;
     }
 
     .nav__list {
@@ -236,6 +289,7 @@ h2{
 
         opacity:0;
         visibility: collapse;
+        transition: all .5s;
 
         flex-direction: column;
         justify-content: center;
