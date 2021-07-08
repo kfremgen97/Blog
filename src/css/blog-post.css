@@ -180,3 +180,11 @@
     }
 
 }
+
+/********* 400 breakpoint ********/
+
+@media only screen and (max-width: 25em){
+    .post-info__img{
+        height: 30vh;
+    }
+}
