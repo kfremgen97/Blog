@@ -39,7 +39,7 @@ html{
 
 body {
     /*
-     Set the sight overall font styling
+     Set the site overall font styling
      Set the height of the site to be a minimum of the viewport height
      */
     font-size: 1.6rem;
@@ -157,7 +157,7 @@ h2{
 }
 
 .nav__checkbox:checked + .nav__button .nav__icon{
-    /*When the nav checkbox is checked, hide the background*/
+    /*When the nav checkbox is checked, hide the middle bar*/
     background-color: transparent;
 }
 
